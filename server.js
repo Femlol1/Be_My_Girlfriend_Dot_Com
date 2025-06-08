@@ -9,7 +9,8 @@ var nodemailer = require('nodemailer')
 var app = express();
 var compiler = webpack(config);
 
-app.use( bodyParser() );
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
